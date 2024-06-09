@@ -1,23 +1,5 @@
 const cliente = require('../config/db')
 
-// getUserall() //ESSE É SOMENTE PARA TESTE, NÃO PARA USAR!!!!!!!!!!!!!!!!!
-// getUser('luan10@gmail.com')
-// creatUser('Lucas', 'luca09@gmail.com', 2605)
-// userValidation('luan123@gmail.com', 123)
-// updateName('LuanP', 'luan10@gmail.com')
-// updateMail('LuanMont@hotmail.com', 'Lua1Mont@hotmail.com')
-// updatePassword('luan@gmail.com', '123')
-// delUser(1)
-
-async function getUserall() { //TESTE
-    await cliente.connect()
-
-    const resultado = await cliente.query('SELECT * FROM users')
-    console.table(resultado.rows)
-    
-    await cliente.end()
-}
-
 async function getUser(email) {
     try{
         await cliente.connect()
@@ -46,9 +28,11 @@ async function getUser(email) {
 async function creatUser(userName, email, password){
     try{
         await cliente.connect()
-            
-        await cliente.query('INSERT INTO users ("username", "email", "password") values ('+"'"+userName+"', '"+email+"', '"+password+"');")
-            
+
+        const userId = Math.floor(1000 + Math.random() * 9000)
+
+        await cliente.query('INSERT INTO users ("username", "email", "password", "id_identifier") values ('+"'"+userName+"', '"+email+"', '"+password+"', '"+userId+"');")
+
         const resultado = await cliente.query('SELECT * FROM users')
         console.table(resultado.rows)
     }
@@ -186,4 +170,13 @@ async function delUser(iduser) {
         console.log('Cliente desconectado...')
     }
 }
-//AJUSTAR PARA COLOCAR UM ID GENERATION
+
+module.exports = {
+    getUser,
+    creatUser,
+    userValidation,
+    updateName,
+    updateMail, 
+    updatePassword, 
+    delUser
+}
