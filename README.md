@@ -23,5 +23,4 @@ Technologies used in the project: </br>
 ![VScode](https://img.shields.io/badge/vscode-4285F4?style=for-the-badge&logo=vscode&logoColor=white)&nbsp; </br>
 
 ## 3 How the project works?
-The project consists of an API system connected to the PostegreSQL database. </br> 
-It is possible to list cars, register, update and delete, in addition to having http requests, not just limited to mechanical requests.
+System where it is possible to list, create, update and delete restaurants, reservations and users registered in the database. Each restaurant, reservation and user has an identification ID, and it is possible to delete and update it from there.
