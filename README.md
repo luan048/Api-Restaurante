@@ -1,6 +1,6 @@
 # Restaurant Reservation System - API
 
-Api with database, PostgreSQL inserted. As an example, a database was used to manage a fictitious car store.
+Api with database, PostgreSQL inserted. As an example, a database for a reservation system was used.
 
 ## Summary
 - [How to set it up?](#1-how-to-set-it-up)
